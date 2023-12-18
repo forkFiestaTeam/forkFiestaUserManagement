@@ -20,9 +20,11 @@ app.get("/users/:id", async (req, res) => {
 });
 
 app.post("/create-user", async (req, res) => {
-  const {id, name, email} = req.body;
-  await User.add({ id, name, email });
+  const {id, name, email,role} = req.body;
+  console.log(role)
+  await User.add({ id, name, email,role});
   res.send({ msg: "User Added" });
+
 });
 
 app.post("/update-user", async (req, res) => {
